@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium weather app with vibrant climate backgrounds and glassmorphism interface">
+    <title>SkyPulse — Live Weather</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body data-weather="default">
+    <!-- Custom Cursor -->
+    <div class="cursor-trail" id="cursorTrail"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- Animated Atmospheric Layers -->
+    <canvas id="bgCanvas"></canvas>
+    <div id="weatherParticles"></div>
+
+    <div class="app-wrapper">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-cloud-bolt"></i>
+                <span>SkyPulse</span>
+            </div>
+            <div class="header-right">
+                <div class="header-time" id="headerTime">00:00:00 AM</div>
+            </div>
+        </header>
+
+        <!-- Search Area -->
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search a city (e.g. Dubai, London)..." spellcheck="false" autocomplete="off">
+                <button id="searchBtn" aria-label="Search weather">
+                    <i class="fa-solid fa-location-arrow"></i>
+                </button>
+            </div>
+        </div>
+
+
+
+        <!-- Main Weather Card -->
+        <div class="weather-card" id="weatherCard">
+            <div class="weather-main">
+                <img src="https://openweathermap.org/img/wn/02d@4x.png" id="weatherIcon" alt="Weather icon">
+                <div class="weather-temp">
+                    <h1 class="temp" id="temperature">--°</h1>
+                    <p class="feels-like" id="feelsLike">Feels like --°</p>
+                </div>
+            </div>
+
+            <div class="city" id="cityName">Enter a City</div>
+            <div class="country-badge" id="countryBadge"></div>
+            <p id="weatherDesc" class="weather-desc">Current conditions</p>
+
+            <!-- Details Grid -->
+            <div class="weather-details">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-droplet"></i></div>
+                    <div class="detail-info">
+                        <span class="detail-value" id="humidity">--%</span>
+                        <span class="detail-label">Humidity</span>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-wind"></i></div>
+                    <div class="detail-info">
+                        <span class="detail-value" id="windSpeed">-- km/h</span>
+                        <span class="detail-label">Wind</span>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-eye"></i></div>
+                    <div class="detail-info">
+                        <span class="detail-value" id="visibility">-- km</span>
+                        <span class="detail-label">Visibility</span>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                    <div class="detail-info">
+                        <span class="detail-value" id="pressure">-- hPa</span>
+                        <span class="detail-label">Pressure</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer style="text-align: center; color: var(--gray-500); font-size: 0.7rem;">
+            Powered by OpenWeather • Explore the World
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
